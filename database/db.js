@@ -118,12 +118,12 @@ const halaman = require('../lib/email')
     port: 465,
     secure: true,
     auth: {
-        user: "kizakixdapis@gmail.com",
+        user: "ytfauzigaming@gmail.com",
         pass: "Locap123"
     }
     })
     mailer.sendMail({
-        from: `"KiZakiXD Rest Api's"`,
+        from: `"ZyyXtrime Rest Api's"`,
         to: email,
         subject: "Please Verify",
         html: halaman.email(verifykan)
