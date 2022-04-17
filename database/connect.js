@@ -9,7 +9,7 @@ function connectMongoDb() {
     const db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error:'));
     db.once('open', () => {
-      console.log('[INFO] KiZakiXD APIs Conected!');
+      console.log('[INFO] ZyyXtrime APIs Conected!');
     });
 };
 
