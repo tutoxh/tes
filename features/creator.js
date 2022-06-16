@@ -3,7 +3,6 @@ const { sleep } = require('../lib/function')
 
 const knights = require("knights-canvas")
 const DIG = require('discord-image-generation')
-const Caxinha = require('caxinha')
 const removebg = require('removebg-id')
 const yuricanvas = require("yuri-canvas")
 const fs = require('fs')
@@ -508,56 +507,6 @@ __path = process.cwd()
          removebg.FromUrl(url, 'fsBdYTGGKfRxsYfRPYD5wRDa').then(async () => res.status(200).sendFile(__path + '/hasil-url.png')).catch(err => res.status(400).json({ error: String(err) }))
      }
      
-     async function komunis(req, res) {
-         let apikey = req.query.apikey
-         let url = req.query.url
-         if (!url) return res.status(400).send({ status: 400, message: 'url parameter cannot be empty', result: 'error' })
-         if (!apikey) return res.status(400).send({ status: 400, message: 'apikey parameter cannot be empty', result: 'error' })
-         let check = await cekKey(apikey)
-         if (!check) return res.status(404).send({ status: 404, message: `apikey ${apikey} not found, please register first.` })
-         let limit = await isLimit(apikey);
-         if (limit) return res.status(429).send({ status: 429, message: 'requests limit exceeded (100 req / day), call owner for an upgrade to premium', result: 'error' })
-         limitAdd(apikey);
-         let img = await Caxinha.canvas.comunism(`${url}`)
-         await fs.writeFileSync(__path +'/tmp/comunis.png', img)
-         await res.sendFile(__path+'/tmp/comunis.png')
-         await sleep(3000)
-         await fs.unlinkSync(__path + '/tmp/comunis.png')
-     }
-     
-     async function wasted(req, res) {
-         let apikey = req.query.apikey
-         let url = req.query.url
-         if (!url) return res.status(400).send({ status: 400, message: 'url parameter cannot be empty', result: 'error' })
-         if (!apikey) return res.status(400).send({ status: 400, message: 'apikey parameter cannot be empty', result: 'error' })
-         let check = await cekKey(apikey)
-         if (!check) return res.status(404).send({ status: 404, message: `apikey ${apikey} not found, please register first.` })
-         let limit = await isLimit(apikey);
-         if (limit) return res.status(429).send({ status: 429, message: 'requests limit exceeded (100 req / day), call owner for an upgrade to premium', result: 'error' })
-         limitAdd(apikey);
-         let img = await Caxinha.canvas.wasted(`${url}`)
-         await fs.writeFileSync(__path +'/tmp/wasted.png', img)
-         await res.sendFile(__path+'/tmp/wasted.png')
-         await sleep(3000)
-         await fs.unlinkSync(__path + '/tmp/wasted.png')
-     }
-     
-     async function wanted(req, res) {
-         let apikey = req.query.apikey
-         let url = req.query.url
-         if (!url) return res.status(400).send({ status: 400, message: 'url parameter cannot be empty', result: 'error' })
-         if (!apikey) return res.status(400).send({ status: 400, message: 'apikey parameter cannot be empty', result: 'error' })
-         let check = await cekKey(apikey)
-         if (!check) return res.status(404).send({ status: 404, message: `apikey ${apikey} not found, please register first.` })
-         let limit = await isLimit(apikey);
-         if (limit) return res.status(429).send({ status: 429, message: 'requests limit exceeded (100 req / day), call owner for an upgrade to premium', result: 'error' })
-         limitAdd(apikey);
-         let img = await Caxinha.canvas.wanted(`${url}`)
-         await fs.writeFileSync(__path +'/tmp/wanted.png', img)
-         await res.sendFile(__path+'/tmp/wanted.png')
-         await sleep(3000)
-         await fs.unlinkSync(__path + '/tmp/wanted.png')
-     }
      
      async function changemymind(req, res) {
          let apikey = req.query.apikey
@@ -789,9 +738,6 @@ module.exports = {
    bonk,
    ship,
    removebeg,
-   komunis,
-   wasted,
-   wanted,
    changemymind,
    notstonk,
    stonk,
