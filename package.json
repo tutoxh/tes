@@ -29,7 +29,7 @@
     "compression": "^1.7.4",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.5",
-    "caxinha": "^0.2.62",
+    
     "crypto": "^1.0.1",
     "discanvas": "^1.5.5",
     "discord-image-generation": "^1.4.9",
