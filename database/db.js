@@ -118,8 +118,8 @@ const halaman = require('../lib/email')
     port: 465,
     secure: true,
     auth: {
-        user: "zyyxtrimeapi@gmail.com",
-        pass: "ZyyXtrime03"
+        user: "fg98ff@gmail.com",
+        pass: "zqdzayhkwnngqbtt"
     }
     })
     mailer.sendMail({
